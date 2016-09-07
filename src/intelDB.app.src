@@ -1,0 +1,17 @@
+{application, intelDB, [
+	{description, "intelDB Real-Time Database."},
+	{vsn, "10.0.0"},
+	{id, "intel"},
+	{modules, []},
+	{registered, [intelDB]},
+	{applications, [kernel,	stdlib]},
+	{mod, {intelDB_app, []}},
+    {env, [
+            {nodename, 'intelDB1@127.0.0.1'},
+            {archBaseDir, "e:/IntelDB/data/archBase/"},
+            {indexBaseDir, "e:/IntelDB/data/indexBase/"},
+            {buffBaseDir, "e:/IntelDB/data/buffBase/"},  
+            {tempBaseDir, "e:/IntelDB/data/tempBase/"},  
+            {tagsBaseDir, "e:/IntelDB/data/tagsBase/"}  
+           ]}
+]}.
