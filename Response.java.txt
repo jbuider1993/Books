@@ -90,6 +90,19 @@ response.addCookie(foo); //put cookie in response
     
     
 ----------------------------------------------------------------------------------------------------
+@RequestMapping(value = "/joda", method = RequestMethod.GET)
+public ResponseEntity joda() {
+    MyBean myBean = new MyBean();
+    myBean.setDate(LocalDate.now());
+    myBean.setDateTime(LocalDateTime.now());
+     
+    return new ResponseEntity<MyBean>(myBean, HttpStatus.OK);
+}
+----------------------------------------------------------------------------------------------------
+
+
+
+
 
 
 
