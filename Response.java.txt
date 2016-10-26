@@ -39,6 +39,22 @@ public class LoginController {
 }
 
 
+-------------------------------------------------------------------------------------------------------
+
+
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
+import org.springframework.web.bind.annotation.CookieValue;
+import org.springframework.web.bind.annotation.RequestMapping;
+//..
+
+@RequestMapping("/hello.html")
+public String hello(HttpServletResponse response) {
+
+	response.addCookie(new Cookie("foo", "bar"));
+
+	//..		
+}
 
 ====================================================================================================
 http://www.programcreek.com/java-api-examples/index.php?api=org.springframework.http.ResponseEntity
