@@ -17,3 +17,10 @@ public ResponseEntity<Map<String, Object>> ajaxSuccess(){
     headers.add("X-Fsl-Response-Code", "302");
     return (new ResponseEntity<Map<String, Object>>(json, headers, HttpStatus.OK));
 }
+
+
+
+HttpHeaders headers = new HttpHeaders();
+headers.add("Location", "http://stackoverflow.com");
+
+return new ResponseEntity<byte []>(null,headers,HttpStatus.FOUND);
