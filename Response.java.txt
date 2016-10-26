@@ -56,6 +56,33 @@ public String hello(HttpServletResponse response) {
 	//..		
 }
 
+
+----------------------------------------------------------------------------------------------------
+Cookie foo = new Cookie("foo", "bar"); //bake cookie
+foo.setMaxAge(1000); //set expire time to 1000 sec
+		
+response.addCookie(foo); //put cookie in response 
+-----------------------------------------------------------------------------------------------------
+
+  @RequestMapping(value = "/employees/{id}")
+    public ResponseEntity<EmployeeVO> getEmployeeById (@PathVariable("id") int id)
+    {
+        if (id <= 3) {
+            EmployeeVO employee = new EmployeeVO(1,"Lokesh","Gupta","howtodoinjava@gmail.com");
+            return new ResponseEntity<EmployeeVO>(employee, HttpStatus.OK);
+        }
+        return new ResponseEntity(HttpStatus.NOT_FOUND);
+    }
+    
+-----------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
 ====================================================================================================
 http://www.programcreek.com/java-api-examples/index.php?api=org.springframework.http.ResponseEntity
 ====================================================================================================
