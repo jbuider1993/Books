@@ -18,9 +18,22 @@ public ResponseEntity<Map<String, Object>> ajaxSuccess(){
     return (new ResponseEntity<Map<String, Object>>(json, headers, HttpStatus.OK));
 }
 
-
+========================================================================================
 
 HttpHeaders headers = new HttpHeaders();
 headers.add("Location", "http://stackoverflow.com");
 
 return new ResponseEntity<byte []>(null,headers,HttpStatus.FOUND);
+
+=====================================================================================
+
+@Controller
+@RequestMapping("/login")
+public class LoginController {
+
+   @RequestMapping("/fbresponse")
+   public String getToken(@RequestParam(required = false, value = "code") String code, HttpServletResponse sResponse) {
+       sResponse.addCookie(new Cookie("logged", "123"));
+       return "redirect:"+user.getLastPage();
+   }
+}
