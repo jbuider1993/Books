@@ -1,0 +1,19 @@
+@RequestMapping(value="ajaxSuccess", method = RequestMethod.GET)
+public ResponseEntity<Map<String, Object>> ajaxSuccess(){
+    Map<String, Object> message = new HashMap<String, Object>();
+
+    message.put("severity", "info");
+    message.put("location", "/");
+    message.put("summary", "Authenticated successfully.");
+    message.put("code", 200);
+
+    Map<String, Object> json = new HashMap<String, Object>();
+    json.put("success", true);
+    json.put("message", message);
+
+    HttpHeaders headers = new HttpHeaders();
+    headers.add("Content-Type", "application/json; charset=UTF-8");
+    headers.add("X-Fsl-Location", "/");
+    headers.add("X-Fsl-Response-Code", "302");
+    return (new ResponseEntity<Map<String, Object>>(json, headers, HttpStatus.OK));
+}
