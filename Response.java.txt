@@ -37,3 +37,9 @@ public class LoginController {
        return "redirect:"+user.getLastPage();
    }
 }
+
+
+
+====================================================================================================
+http://www.programcreek.com/java-api-examples/index.php?api=org.springframework.http.ResponseEntity
+====================================================================================================
