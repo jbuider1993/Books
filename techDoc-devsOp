@@ -26,3 +26,5 @@ WantedBy=multi-user.target
 (13) systemctl start firewalld
 (14) firewall-cmd --zone=public --permanent --add-port=8161/tcp firewall-cmd --reload
 (15) firewall-cmd --zone=public --permanent --add-port=61616/tcp firewall-cmd --reload
+
+u/p: admin and admin
