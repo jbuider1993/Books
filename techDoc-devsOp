@@ -1,0 +1,28 @@
+install ActiveMQ
+
+(1) yum -y update
+(2) yum install -y java-1.8.0-openjdk
+(3) yum -y install wget (opt)
+(4) cd wget https://archive.apache.org/dist/activemq/5.14.3/apache-activemq-5.14.3-bin.tar.gz
+(5) tar -zxvf apache-activemq-5.14.3-bin.tar.gz -C /opt
+(6) ln -s /opt/apache-activemq-5.14.3 /opt/activemq
+(7) cd /opt/activemq ./bin/activemq start
+(8)  yum -y install nano (opt)
+(9) nano /usr/lib/systemd/system/activemq.service
+[Unit]
+Description=activemq message queue
+After=network.target
+[Service]
+ExecStart=/opt/activemq/bin/activemq start
+ExecStop=/opt/activemq/bin/activemq stop
+User=root
+Group=root
+[Install]
+WantedBy=multi-user.target
+
+(10) systemctl enable activemq.service systemctl start activemq.service systemctl stop activemq.service
+(11) systemctl start activemq.service
+(12) yum -y install firewalld
+(13) systemctl start firewalld
+(14) firewall-cmd --zone=public --permanent --add-port=8161/tcp firewall-cmd --reload
+(15) firewall-cmd --zone=public --permanent --add-port=61616/tcp firewall-cmd --reload
